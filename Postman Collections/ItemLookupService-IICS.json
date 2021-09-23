@@ -1,0 +1,374 @@
+{
+  "info": {
+    "_postman_id": "50c1bd78-95ff-45de-989f-260cc6d91b13",
+    "name": "ItemLookupService-IICS-DO NOT EDIT",
+    "schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "item-lookup",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "f45e9d83-86c9-4037-b574-7cdeb4324883",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 20s\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);\r",
+              "});\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"00024563114417\");\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "da9b07c6-47bd-4d31-8542-37be8ca633e2",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{access_token}}"
+          }
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"00024563114417\",\n\t\"description\":null,\n\t\"shipcase\":null,\n\t\"variant\":null\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{ENVIRONMENT}}/sim-item-lookup"
+      },
+      "response": [
+        {
+          "id": "ad1b46f8-97b4-437c-924a-e3d1c6e90647",
+          "name": "item-lookup",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"00024563114417\",\n\t\"description\":null,\n\t\"shipcase\":null,\n\t\"variant\":null\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://{{ENVIRONMENT}}/sim-item-lookup"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 22 Sep 2021 17:24:51 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "vary",
+              "value": "accept-encoding"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "authorization,Access-Control-Allow-Origin,Content-Type,INFA_ORIGINATOR"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": ""
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "key": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "key": "Access-Control-Request-Headers",
+              "value": "authorization"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Access-Control-Max-Age",
+              "value": "1728000"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"Items\": [\n        {\n            \"VariantId\": 3277865,\n            \"RetailUpc\": \"00024563114417\",\n            \"Description\": \"AB NURSERIES VEGETABLE SEEDS 1.75 NS\",\n            \"Pack\": 1,\n            \"Size\": \"EACH\",\n            \"ShipcaseId\": 3277866,\n            \"IsRandomWeight\": false,\n            \"DepartmentId\": 2208,\n            \"CaptureTime\": \"Sep 22, 2021 10:24:51 AM\",\n            \"StatusCode\": 6,\n            \"Category\": {\n                \"CategoryId\": 2073,\n                \"Description\": \"9620 FERTILIZER & SOIL\"\n            },\n            \"AvailableUoms\": [\n                {\n                    \"UomId\": 1,\n                    \"Description\": \"EACH\"\n                },\n                {\n                    \"UomId\": 2,\n                    \"Description\": \"SHPC\"\n                }\n            ],\n            \"DefaultUom\": {\n                \"UomId\": 1,\n                \"Description\": \"EACH\"\n            }\n        }\n    ]\n}"
+        }
+      ]
+    },
+    {
+      "name": "item-lookup-ehanced",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "824238a9-87b0-4b06-aac8-161acf718203",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 20s\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(20000);\r",
+              "});\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"4011\");\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "_postman_id": "36bba3b0-894d-4282-913d-4cb6e2ca4f7b",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{access_token}}"
+          }
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"4011\"\n}",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+      },
+      "response": [
+        {
+          "id": "ee95f135-1fe2-431c-9b9f-29da8f1cc2d4",
+          "name": "item-lookup-ehanced",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"4011\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 22 Sep 2021 17:25:12 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "vary",
+              "value": "accept-encoding"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "authorization,Access-Control-Allow-Origin,Content-Type,INFA_ORIGINATOR"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": ""
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "key": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "key": "Access-Control-Request-Headers",
+              "value": "authorization"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Access-Control-Max-Age",
+              "value": "1728000"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"Items\": [\n        {\n            \"VariantId\": 1689488,\n            \"RetailUpc\": \"4011\",\n            \"Description\": \"1x18KG - BANANAS REGULAR STAGE 1/2-34\",\n            \"Pack\": 1,\n            \"Size\": \"/KG\",\n            \"ShipcaseUpc\": \"4011\",\n            \"ShipcaseId\": 1689489,\n            \"IsRandomWeight\": true,\n            \"DepartmentId\": 2209,\n            \"CaptureTime\": \"Sep 22, 2021 10:25:11 AM\",\n            \"StatusCode\": 4,\n            \"Category\": {\n                \"CategoryId\": 2146,\n                \"Description\": \"9766 BANANAS\"\n            },\n            \"AvailableUoms\": [\n                {\n                    \"UomId\": 1,\n                    \"Description\": \"EACH\"\n                },\n                {\n                    \"UomId\": 2,\n                    \"Description\": \"SHPC\"\n                },\n                {\n                    \"UomId\": 4,\n                    \"Description\": \"KG\"\n                }\n            ],\n            \"DefaultUom\": {\n                \"UomId\": 4,\n                \"Description\": \"KG\"\n            }\n        }\n    ]\n}"
+        }
+      ]
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "",
+          "const moment = require(\"moment\")",
+          "var current_date_moment = moment().utc().format();",
+          "console.log(\"current date and time in utc\", current_date_moment)",
+          "",
+          "if(current_date_moment > (pm.environment.get(\"access_token_expiry\")))",
+          "{",
+          "const loginRequest = {",
+          "    url: 'https://dm-us.informaticacloud.com/authz-service/oauth/token?grant_type=client_credentials',",
+          "    method: 'POST',",
+          "    header: 'Authorization: '+ pm.environment.get(\"iics_token\")",
+          "};",
+          "",
+          "pm.sendRequest(loginRequest, function (err, response) {",
+          "    var responseJson = response.json();",
+          "    var changed_date_moment = moment().add('seconds', responseJson.expires_in).utc().format()",
+          "",
+          "    pm.environment.set('access_token_expiry', changed_date_moment);",
+          "    pm.environment.set(\"access_token\", responseJson.access_token);",
+          "    console.log(\"new access token will expire on\", changed_date_moment )",
+          "});",
+          "}",
+          "",
+          "else{",
+          "    console.log(\"access_token is not expired using the existing token\")",
+          "}"
+        ],
+        "id": "2c1b5706-c3af-4771-9801-59a383d941cf"
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          ""
+        ],
+        "id": "6e752d51-2427-45a3-a1ed-345d5e6e23e6"
+      }
+    }
+  ]
+}
