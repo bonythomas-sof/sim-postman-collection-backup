@@ -22,7 +22,7 @@
               "    pm.expect(pm.response.responseTime).to.be.below(60000);\r",
               "});\r",
               "pm.test(\"Body matches string\", function () {\r",
-              "    pm.expect(pm.response.text()).to.include(\"SAVE ON FOODS\");\r",
+              "    pm.expect(pm.response.text()).to.include(\"4011\");\r",
               "});"
             ],
             "type": "text/javascript"
@@ -58,7 +58,7 @@
             }
           }
         },
-        "url": "https://{{ENVIRONMENT}}/sim-simweb-get-banners"
+        "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
       },
       "response": [
         {
