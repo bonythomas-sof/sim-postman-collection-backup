@@ -51,7 +51,7 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "",
+          "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"4011\"\n}",
           "options": {
             "raw": {
               "language": "json"
