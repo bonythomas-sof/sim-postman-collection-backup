@@ -22,7 +22,7 @@
               "    pm.expect(pm.response.responseTime).to.be.below(60000);\r",
               "});\r",
               "pm.test(\"Body matches string\", function () {\r",
-              "    pm.expect(pm.response.text()).to.include(\"4011\");\r",
+              "    pm.expect(pm.response.text()).to.include(\"SAVE ON FOODS\");\r",
               "});"
             ],
             "type": "text/javascript"
@@ -51,14 +51,14 @@
         ],
         "body": {
           "mode": "raw",
-          "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"4011\"\n}",
+          "raw": "",
           "options": {
             "raw": {
               "language": "json"
             }
           }
         },
-        "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+        "url": "https://{{ENVIRONMENT}}/sim-simweb-get-banners"
       },
       "response": [
         {
