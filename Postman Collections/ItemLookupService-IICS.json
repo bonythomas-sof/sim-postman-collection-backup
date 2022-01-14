@@ -163,6 +163,165 @@
           "body": "{\n    \"Items\": [\n        {\n            \"VariantId\": 1689488,\n            \"RetailUpc\": \"4011\",\n            \"Description\": \"1x18KG - BANANAS REGULAR STAGE 1/2-34\",\n            \"Pack\": 1,\n            \"Size\": \"/KG\",\n            \"ShipcaseUpc\": \"4011\",\n            \"ShipcaseId\": 1689489,\n            \"IsRandomWeight\": true,\n            \"DepartmentId\": 2209,\n            \"CaptureTime\": \"Sep 22, 2021 10:25:11 AM\",\n            \"StatusCode\": 4,\n            \"Category\": {\n                \"CategoryId\": 2146,\n                \"Description\": \"9766 BANANAS\"\n            },\n            \"AvailableUoms\": [\n                {\n                    \"UomId\": 1,\n                    \"Description\": \"EACH\"\n                },\n                {\n                    \"UomId\": 2,\n                    \"Description\": \"SHPC\"\n                },\n                {\n                    \"UomId\": 4,\n                    \"Description\": \"KG\"\n                }\n            ],\n            \"DefaultUom\": {\n                \"UomId\": 4,\n                \"Description\": \"KG\"\n            }\n        }\n    ]\n}"
         }
       ]
+    },
+    {
+      "name": "item-lookup-ehanced Copy",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "id": "fde7ed1c-76b8-492b-b17a-19261ad8fe7d",
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {\r",
+              "    pm.response.to.have.status(200);\r",
+              "});\r",
+              "\r",
+              "\r",
+              "pm.test(\"Response time is less than 60s\", function () {\r",
+              "    pm.expect(pm.response.responseTime).to.be.below(60000);\r",
+              "});\r",
+              "pm.test(\"Body matches string\", function () {\r",
+              "    pm.expect(pm.response.text()).to.include(\"4011\");\r",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "id": "46c16a74-ae9c-42e0-80e1-700980608cd6",
+      "protocolProfileBehavior": {
+        "disableBodyPruning": true
+      },
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": {
+            "token": "{{access_token}}"
+          }
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "name": "Content-Type",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "",
+          "options": {
+            "raw": {
+              "language": "json"
+            }
+          }
+        },
+        "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+      },
+      "response": [
+        {
+          "id": "ca96b48d-4e83-4472-b9c4-7c0df48f80bf",
+          "name": "item-lookup-ehanced",
+          "originalRequest": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "name": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n\t\"location\":\"2242\",\n\t\"upc\":\"4011\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+          },
+          "status": "OK",
+          "code": 200,
+          "_postman_previewlanguage": "json",
+          "header": [
+            {
+              "key": "Date",
+              "value": "Wed, 22 Sep 2021 17:25:12 GMT"
+            },
+            {
+              "key": "Content-Type",
+              "value": "application/json;charset=utf-8"
+            },
+            {
+              "key": "Transfer-Encoding",
+              "value": "chunked"
+            },
+            {
+              "key": "Connection",
+              "value": "keep-alive"
+            },
+            {
+              "key": "Access-Control-Allow-Origin",
+              "value": "*"
+            },
+            {
+              "key": "vary",
+              "value": "accept-encoding"
+            },
+            {
+              "key": "Access-Control-Allow-Methods",
+              "value": "GET,PUT,POST,DELETE,PATCH,OPTIONS"
+            },
+            {
+              "key": "X-Content-Type-Options",
+              "value": "nosniff"
+            },
+            {
+              "key": "Access-Control-Allow-Headers",
+              "value": "authorization,Access-Control-Allow-Origin,Content-Type,INFA_ORIGINATOR"
+            },
+            {
+              "key": "Referrer-Policy",
+              "value": "strict-origin-when-cross-origin"
+            },
+            {
+              "key": "Access-Control-Expose-Headers",
+              "value": ""
+            },
+            {
+              "key": "Cache-Control",
+              "value": "no-cache"
+            },
+            {
+              "key": "Access-Control-Allow-Credentials",
+              "value": "true"
+            },
+            {
+              "key": "Access-Control-Request-Headers",
+              "value": "authorization"
+            },
+            {
+              "key": "Content-Encoding",
+              "value": "gzip"
+            },
+            {
+              "key": "Access-Control-Max-Age",
+              "value": "1728000"
+            },
+            {
+              "key": "X-XSS-Protection",
+              "value": "1; mode=block"
+            }
+          ],
+          "cookie": [],
+          "responseTime": null,
+          "body": "{\n    \"Items\": [\n        {\n            \"VariantId\": 1689488,\n            \"RetailUpc\": \"4011\",\n            \"Description\": \"1x18KG - BANANAS REGULAR STAGE 1/2-34\",\n            \"Pack\": 1,\n            \"Size\": \"/KG\",\n            \"ShipcaseUpc\": \"4011\",\n            \"ShipcaseId\": 1689489,\n            \"IsRandomWeight\": true,\n            \"DepartmentId\": 2209,\n            \"CaptureTime\": \"Sep 22, 2021 10:25:11 AM\",\n            \"StatusCode\": 4,\n            \"Category\": {\n                \"CategoryId\": 2146,\n                \"Description\": \"9766 BANANAS\"\n            },\n            \"AvailableUoms\": [\n                {\n                    \"UomId\": 1,\n                    \"Description\": \"EACH\"\n                },\n                {\n                    \"UomId\": 2,\n                    \"Description\": \"SHPC\"\n                },\n                {\n                    \"UomId\": 4,\n                    \"Description\": \"KG\"\n                }\n            ],\n            \"DefaultUom\": {\n                \"UomId\": 4,\n                \"Description\": \"KG\"\n            }\n        }\n    ]\n}"
+        }
+      ]
     }
   ],
   "event": [
