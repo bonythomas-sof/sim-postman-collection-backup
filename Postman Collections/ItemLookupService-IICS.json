@@ -83,7 +83,7 @@
 								}
 							}
 						},
-						"url": "https://{{ENVIRONMENT}}/sim-item-lookup-enhanced"
+						"url": "https://{{hostname}}/sim-item-lookup-enhanced"
 					},
 					"status": "OK",
 					"code": 200,
